@@ -2,8 +2,8 @@ CXX = g++
 
 all: main
 
-main: threadpool.h
-	g++ test.cpp
+main: main.o http_conn.o threadpool.o
+	g++ $^ -o $@
 
 clean:
 	-rm main *.o
@@ -11,6 +11,8 @@ clean:
 .PHONY: clean
 
 sources = main.cc threadpool.cc http_conn.cc
+
+include $(sources:.c=.d)
 
 %.d: %.c
 	set -e; rm -f $@; \
