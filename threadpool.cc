@@ -1,4 +1,4 @@
 #include "threadpool.h"
 
 <Typename T>
-Threadpool(int threa)
+Threadpool(int threadNum)
